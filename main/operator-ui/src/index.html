@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Operator UI - PoC</title>
+  </head>
+  <body>
+    <h1>Operator Panel (PoC)</h1>
+    <p><a id="login" href="#">Login (redirect)</a></p>
+    <h2>Interventions</h2>
+    <ul id="list"></ul>
+
+    <script>
+      document.getElementById('login').addEventListener('click', (e) => {
+        e.preventDefault()
+        window.location.href = 'http://localhost:3001/auth/login'
+      })
+
+      async function load() {
+        try {
+          const res = await fetch('http://localhost:3000/api/interventions', { credentials: 'include' })
+          if (!res.ok) return
+          const data = await res.json()
+          const list = document.getElementById('list')
+          list.innerHTML = ''
+        } catch (e) {
+        }
+      }
+
+      setInterval(load, 5000)
+      load()
+    </script>
+  </body>
+</html>

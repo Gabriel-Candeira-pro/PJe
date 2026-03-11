@@ -1,0 +1,16 @@
+{
+  "name": "pje-root",
+  "private": true,
+  "workspaces": [
+    "auth-service",
+    "api-gateway",
+    "operator-ui",
+    "worker"
+  ],
+  "scripts": {
+    "start:all": "concurrently \"npm --workspace=auth-service start\" \"npm --workspace=api-gateway start\" \"npm --workspace=operator-ui start\" \"npm --workspace=worker start\" --kill-others"
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  }
+}
