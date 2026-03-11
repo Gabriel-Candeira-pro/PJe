@@ -76,7 +76,3 @@ docker compose -f infra/docker-compose.yml down
 ## Contribuição
 
 Abra issues para sugerir melhorias ou correções. Para pull requests, descreva o propósito e como testar localmente.
-
-## Contato
-
-Mantenha este arquivo atualizado com instruções específicas do projeto conforme os requisitos evoluam.
