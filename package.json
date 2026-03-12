@@ -1,7 +1,0 @@
-{
-  "name": "pje-root-wrapper",
-  "private": true,
-  "scripts": {
-    "start:all": "npm --prefix ./main run start:all"
-  }
-}
