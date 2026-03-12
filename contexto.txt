@@ -1,0 +1,40 @@
+Atualizando o plano e checando os arquivos `operator-ui` e `worker` para propor a arquitetura da UI e integração.
+
+Starting: *Criar/atualizar serviço de extração em `worker/`* (3/9)
+
+Agora vou ler os arquivos `operator-ui` e `worker` para entender o estado atual.Vou listar o conteúdo de `operator-ui` e `worker` para localizar os arquivos relevantes.
+
+Leia [](file:///home/oem/Projetos_COD/PROJETOS_JAVA/Pje/operator-ui)
+
+Leia [](file:///home/oem/Projetos_COD/PROJETOS_JAVA/Pje)
+
+Leia [](file:///home/oem/Projetos_COD/PROJETOS_JAVA/Pje/main)
+
+Leia [](file:///home/oem/Projetos_COD/PROJETOS_JAVA/Pje/main/operator-ui)
+
+Leia [](file:///home/oem/Projetos_COD/PROJETOS_JAVA/Pje/main/operator-ui/src)
+
+Leia [](file:///home/oem/Projetos_COD/PROJETOS_JAVA/Pje/main/operator-ui/src/index.html)
+
+Leia [](file:///home/oem/Projetos_COD/PROJETOS_JAVA/Pje/main/worker)
+
+Otimizando a seleção de ferramentas...Otimizando a seleção de ferramentas...
+
+Leia [](file:///home/oem/Projetos_COD/PROJETOS_JAVA/Pje/main/worker/src)
+
+Leia [](file:///home/oem/Projetos_COD/PROJETOS_JAVA/Pje/main/worker/src/worker.js)
+
+Leia [](file:///home/oem/Projetos_COD/PROJETOS_JAVA/Pje/main/api-gateway/src)
+
+Leia [](file:///home/oem/Projetos_COD/PROJETOS_JAVA/Pje/main/api-gateway/src/index.js)
+
+Ótimo — proponho usar o fluxo já existente de `interventions` (API) como orquestrador: a UI cria uma intervenção contendo URL/seletores/regras; o `worker` consulta interventions, reivindica (`passphrase`) e executa o Playwright para simular o usuário e extrair; resultados são gravados em JSON/endpoint.
+
+Próximos passos que posso implementar agora (escolha quais quer que eu faça):
+- Implementar formulário na UI (index.html) para criar intervenções com campos: `url`, `selector` e `regras` (JSON/text).
+- Expandir `api-gateway` para validar/aceitar payload de extração (já aceita `reason` — só aceitar campos extras).
+- Implementar `worker/src/scraper.js` usando Playwright e adicionar `worker/package.json` dependency e script `npm run scrape`.
+- Alterar `worker/src/worker.js` para: poll `/api/interventions`, claim via `POST /api/interventions/:id/passphrase` e executar `scraper.js`, gravando resultado em tmp ou POST em API.
+- Adicionar comandos de execução e instruções de teste.
+
+Confirmo para implementar o protótipo completo (UI + endpoint + worker Playwright)? Se sim, eu implemento e testo localmente.

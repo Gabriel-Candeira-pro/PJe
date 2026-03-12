@@ -1,0 +1,15 @@
+:root { --divider-width: 8px; }
+html,body { height: 100%; margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+.app-header { padding: 12px 16px; border-bottom: 1px solid #eee; }
+.split-container { display: flex; height: calc(100vh - 68px); }
+.pane { overflow: auto; }
+.left-pane { flex: 1 1 60%; min-width: 150px; background: #fff; }
+.left-pane iframe { width: 100%; height: 100%; border: none; display: block; }
+.preview-controls { display:flex; gap:8px; padding:8px; box-sizing:border-box; border-bottom:1px solid #eee; }
+.preview-controls input { flex:1; padding:6px 8px; border:1px solid #ccc; border-radius:4px; }
+.preview-controls button { padding:6px 10px; border:1px solid #2b7; background:#2b7; color:#fff; border-radius:4px; cursor:pointer }
+.right-pane { flex: 0 0 40%; min-width: 220px; padding: 12px; box-sizing: border-box; background: #fafafa; border-left: 1px solid #eee; }
+.divider { width: var(--divider-width); background: linear-gradient(90deg, transparent, rgba(0,0,0,0.06), transparent); cursor: col-resize; }
+.divider:focus { outline: 2px solid #4d90fe; }
+form > div { margin-bottom: 8px; }
+#list { margin-top: 12px; padding-left: 18px; }

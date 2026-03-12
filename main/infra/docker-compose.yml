@@ -16,7 +16,7 @@ services:
     build: ../operator-ui
     container_name: pje_operator_ui
     ports:
-      - '3002:80'
+      - '3002:3002'
     depends_on:
       - api-gateway
   worker:
