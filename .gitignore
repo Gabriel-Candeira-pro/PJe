@@ -58,4 +58,9 @@ docker-compose.override.yml
 
 # Misc
 *.sqlite3
-*.db
+*.dbnode_modules
+pids
+logs
+dist
+build
+.cache
